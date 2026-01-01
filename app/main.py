@@ -1,5 +1,10 @@
-import random
 
-for x in range(0, 1000000000):
-    print("Hello world!")
-    print("My name is Maximus Decimus Meridius and my favorite number is", x)
+
+while True:
+
+	print("Hello world!")
+
+	c = input("What is your favorite color?")
+
+
+	print(c, "is a good color, but I like the color green")

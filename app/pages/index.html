@@ -9,11 +9,19 @@
 	</head>
 
 	<body class="element-with-background">
-		<h1>HAPPY NEW YEAR!</h1>
-		<p>This is a real webpage.</p>
+
+		<h1 class="gradient-text">
+  			HAPPY NEW YEAR!
+		</h1>
+
+		<h2>This is a real webpage.</h2>
+
 		<p>
 			<label for="picture">Take a picture using back facing camera:</label>
 			<input id="photo_input" type="file" accept="image/*" capture="environment">
+		</p>
+
+		<p>
 			<img id="thumbnail" width="200">
 		</p>
 		<p>Look at this cute puppy (not as cute as donner though)</p>
@@ -21,17 +29,17 @@
 		<p>For reference, this is donner</p>
 		<img src="IMG_0629.jpeg"/>
 
-	<script>
-	photo_input.onchange = () => {
-		const img = new Image()
-		img.onload = () => {
-			const c = Object.assign(document.createElement("canvas"), {width: img.width, height: img.height})
-			c.getContext("2d").drawImage(img, 0, 0)
-			c.toBlob(b => thumbnail.src = URL.createObjectURL(b), "image/jpeg")
+		<script>
+		photo_input.onchange = () => {
+			const img = new Image()
+			img.onload = () => {
+				const c = Object.assign(document.createElement("canvas"), {width: img.width, height: img.height})
+				c.getContext("2d").drawImage(img, 0, 0)
+				c.toBlob(b => thumbnail.src = URL.createObjectURL(b), "image/jpeg")
+			}
+			img.src = URL.createObjectURL(photo_input.files[0])
 		}
-		img.src = URL.createObjectURL(photo_input.files[0])
-	}
-	</script>
+		</script>
 
 	</body>
 
