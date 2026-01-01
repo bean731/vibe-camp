@@ -4,18 +4,35 @@
 
 	<head>
 		<title>My First Website</title>
+		<link rel="stylesheet" href=style.css>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 	</head>
 
-	<body>
-		<h1>Hello from my website</h1>
+	<body class="element-with-background">
+		<h1>HAPPY NEW YEAR!</h1>
 		<p>This is a real webpage.</p>
 		<p>
-			Visit <a href="https://www.wikipedia.org">Wikipedia</a>
+			<label for="picture">Take a picture using back facing camera:</label>
+			<input id="photo_input" type="file" accept="image/*" capture="environment">
+			<img id="thumbnail" width="200">
 		</p>
 		<p>Look at this cute puppy (not as cute as donner though)</p>
 		<img src="https://picsum.photos/id/237/500/500"/>
 		<p>For reference, this is donner</p>
 		<img src="IMG_0629.jpeg"/>
+
+	<script>
+	photo_input.onchange = () => {
+		const img = new Image()
+		img.onload = () => {
+			const c = Object.assign(document.createElement("canvas"), {width: img.width, height: img.height})
+			c.getContext("2d").drawImage(img, 0, 0)
+			c.toBlob(b => thumbnail.src = URL.createObjectURL(b), "image/jpeg")
+		}
+		img.src = URL.createObjectURL(photo_input.files[0])
+	}
+	</script>
+
 	</body>
 
 </html>
