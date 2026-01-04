@@ -5,7 +5,7 @@ build:
   commands:
     build:
       - python3 -m pip install -U pip
-      - python3 -m pip install -r app/requirements.txt -t python_lib
+      - python3 -m pip install -r requirements.txt -t python_lib
 
 run:
   command: python3 app/webserver.py
@@ -18,4 +18,4 @@ run:
       value: "8080"
   secrets:
     - name: OPENAI_API_KEY
-      value-from: "arn:aws:secretsmanager:us-west-2:294574925255:secret:vibecamp-openapi-key-vd5cQU:OPENAI_API_KEY::"
+      value-from: "arn:aws:secretsmanager:us-west-2:294574925255:secret:vibecamp-bl-openapi-key-XjR6sM:OPENAI_API_KEY::"
